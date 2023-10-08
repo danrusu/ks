@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>shapes</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="/styles">
+</head>
+
+<body>
+  <div id="app">
+    <div id="menu">
+      <button id="get-shapes" onclick="getShapes()">SHAPES</button>
+      <span id="filters">
+        <button id="red-filter" onclick="getShapes('red')">RED</button>
+        <button id="green-filter" onclick="getShapes('green')">GREEEN</button>
+        <button id="blue-filter" onclick="getShapes('blue')">BLUE</button>
+      </span>
+    </div>
+    <div id="shapes"></div>
+  </div>
+  <script src="/main"></script>
+</body>
+
+</html>

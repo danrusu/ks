@@ -1,0 +1,39 @@
+[
+  {
+    "type": "circle",
+    "color": "red"
+  },
+  {
+    "type": "square",
+    "color": "blue"
+  },
+  {
+    "type": "triangle",
+    "color": "red"
+  },
+  {
+    "type": "circle",
+    "color": "green"
+  },
+  {
+    "type": "triangle",
+    "color": "blue"
+  },
+  {
+    "type": "circle",
+    "color": "blue"
+  },
+
+  {
+    "type": "triangle",
+    "color": "green"
+  },
+  {
+    "type": "square",
+    "color": "red"
+  },
+  {
+    "type": "square",
+    "color": "green"
+  }
+]
