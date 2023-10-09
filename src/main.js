@@ -5,19 +5,32 @@ const COLORS_MAP = {
 };
 
 async function getShapes(color) {
+  updatePressedButton(color);
+
+  setShapesContent(
+    '<img class="loading" src="images/loading.gif" alt="...loading" />',
+  );
+
   const searchParams = new URLSearchParams();
   if (color != 'all') {
     searchParams.append('color', color);
   }
+
   const response = await fetch(`/shapes?${searchParams.toString()}`);
   const shapes = await response.json();
   const htmlShapes = shapes.map(htmlShape).join('\n');
 
-  document.getElementById('shapes').innerHTML = htmlShapes;
+  setShapesContent(htmlShapes);
+}
+
+function updatePressedButton(color) {
   document
     .querySelectorAll('button')
     .forEach(element => element.classList.remove('pressed'));
   document.querySelector(`#${color}-filter`).classList.add('pressed');
+}
+function setShapesContent(innerHTML) {
+  document.getElementById('shapes').innerHTML = innerHTML;
 }
 
 function htmlShape(shape) {
