@@ -20,11 +20,13 @@ app.listen(port, () =>
 );
 
 async function getShapes(req, res) {
+  const color = req.query?.color;
   const shapes = JSON.parse(
     (await readFile('data/shapes.json')).toString('utf-8'),
   );
-  const color = req.query?.color;
-  if (color == undefined) {
+  if (color) {
+    res.send(shapes.filter(shape => shape.color == color));
+  } else {
     res.send(shapes);
   }
 }

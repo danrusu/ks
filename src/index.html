@@ -10,15 +10,14 @@
 
 <body>
   <div id="app">
+    <div id="title">Shapes</div>
     <div id="menu">
-      <button id="get-shapes" onclick="getShapes()">SHAPES</button>
-      <span id="filters">
-        <button id="red-filter" onclick="getShapes('red')">RED</button>
-        <button id="green-filter" onclick="getShapes('green')">GREEEN</button>
-        <button id="blue-filter" onclick="getShapes('blue')">BLUE</button>
-      </span>
+      <button id="all-filter" alt="fetch all shapes" onclick="getShapes('all')">ALL</button>
+      <button id="red-filter" alt="fetch red shapes" onclick="getShapes('red')">RED</button>
+      <button id="green-filter" alt="fetch green shapes" onclick="getShapes('green')">GREEEN</button>
+      <button id="blue-filter" alt="fetch blue shapes" onclick="getShapes('blue')">BLUE</button>
     </div>
-    <div id="shapes"></div>
+    <div id="shapes">Press any button to fetch and display shapes.</div>
   </div>
   <script src="/main"></script>
 </body>
