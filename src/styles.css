@@ -14,8 +14,28 @@ html {
   background-color: black;
 }
 
+#quote-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+#quote-button {
+  height: var(--size);
+  width: var(--size);
+  margin-right: calc(var(--size) / 2);
+  margin-top: calc(var(--size) / 2);
+  cursor: pointer;
+}
+
+#quote {
+  font-style: italic;
+  font-size: 20px;
+  color: var(--orange)
+}
+
 #title {
-  margin-top: calc(var(--size) * 1.5);
+  margin-top: var(--size);
   text-align: center;
   font-family: 'Brush Script MT', cursive;
   font-size: calc(var(--size) * 2);
@@ -27,7 +47,7 @@ button {
   color: white;
   font-weight: bold;
   margin-top: calc(var(--size)/2);
-  margin-bottom: calc(var(--size)/2);
+  margin-bottom: calc(var(--size)/1.5);
   margin-left: 20px;
   padding: 10px 20px;
   border-radius: 10px;
@@ -80,10 +100,9 @@ button {
 }
 
 #shapes {
-  font-family: 'Brush Script MT', cursive;
-  font-size: calc(var(--size)/2);
-  color: ghostwhite;
   display: flex;
+  font-size: calc(var(--size)/3);
+  color: var(--orange);
   align-items: center;
   justify-content: center;
   padding-top: 20px;

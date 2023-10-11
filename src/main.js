@@ -4,7 +4,14 @@ const COLORS_MAP = {
   blue: 'rgb(0, 150, 255)',
 };
 
+let abortController, signal;
 async function getShapes(color) {
+  if (!abortController) {
+    abortController = new AbortController();
+    signal = abortController.signal;
+  } else {
+    abortController.abort();
+  }
   updatePressedButton(color);
 
   setShapesContent(
@@ -17,6 +24,28 @@ async function getShapes(color) {
   }
 
   const response = await fetch(`/shapes?${searchParams.toString()}`);
+  const shapes = await response.json();
+  const htmlShapes = shapes.map(htmlShape).join('\n');
+
+  setShapesContent(htmlShapes);
+  abortController = undefined;
+}
+
+async function getShapesOnce(color) {
+  updatePressedButton(color);
+
+  setShapesContent(
+    '<img class="loading" src="images/loading.gif" alt="...loading" />',
+  );
+
+  const searchParams = new URLSearchParams();
+  if (color != 'all') {
+    searchParams.append('color', color);
+  }
+
+  const response = await fetch(`/shapes?${searchParams.toString()}`, {
+    signal,
+  });
   const shapes = await response.json();
   const htmlShapes = shapes.map(htmlShape).join('\n');
 
@@ -43,4 +72,8 @@ function htmlShape(shape) {
 
 function isTriangle(shape) {
   return shape.type == 'triangle';
+}
+
+function displayQuote() {
+  document.getElementById('quote').style.display = 'block';
 }
