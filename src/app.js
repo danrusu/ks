@@ -27,6 +27,7 @@ async function shapesHandler(req, res) {
   const shapes = JSON.parse(
     (await readFile('data/shapes.json')).toString('utf-8'),
   );
+  // shuffle(shapes);
   if (color) {
     res.send(shapes.filter(shape => shape.color == color));
   } else {
@@ -38,4 +39,12 @@ async function wait(timeoutInMillis) {
   return new Promise(res => {
     setTimeout(res, timeoutInMillis);
   });
+}
+
+// Fisher-Yates algorithm
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }

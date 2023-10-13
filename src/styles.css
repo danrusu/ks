@@ -30,8 +30,13 @@ html {
 
 #quote {
   font-style: italic;
-  font-size: 20px;
-  color: var(--orange)
+  font-size: calc(var(--size)/3);
+  color: var(--blue)
+}
+
+#handler {
+  margin-left: 10px;
+  position: absolute;
 }
 
 #title {
