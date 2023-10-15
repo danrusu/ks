@@ -11,8 +11,8 @@
 
 <body>
   <div id="handler">
-    <input type="radio" id="withoutCancel" onclick="saveHandler('withoutCancel')" title="withoutCancel" name="handler">
-    <input type="radio" id="withCancel" onclick="saveHandler('withCancel')" title="withCancel" name="handler">
+    <input type="radio" id="withoutCancel">
+    <input type="radio" id="withCancel">
   </div>
   <div id="quote-container">
     <q id="quote" style="display: none">Testing leads to failure, and failure leads to understanding.</q>
@@ -29,7 +29,14 @@
     <div id="shapes">Press any button to fetch and display shapes.</div>
   </div>
   <script src="/main"></script>
-  <script>setGetShapesHandler();</script>
+  <script>
+    document.querySelectorAll('#handler input').forEach(element => {
+      element.name = 'handler';
+      element.title = element.id;
+      element.addEventListener('click', () => saveHandler(element.id));
+    });
+    setGetShapesHandler();
+  </script>
 </body>
 
 </html>
