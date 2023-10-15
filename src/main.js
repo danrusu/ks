@@ -2,7 +2,7 @@ let abortController;
 const log = console.log;
 const COLORS_MAP = {
   red: 'crimson',
-  green: 'rgb(80, 200, 120',
+  green: 'rgb(80, 200, 120)',
   blue: 'rgb(0, 150, 255)',
 };
 
@@ -15,7 +15,6 @@ async function getShapes(color) {
   const handler = [...document.querySelectorAll('[name=handler]')].find(
     el => el.checked,
   ).id;
-  log(handler);
   HANDLERS[handler](color);
 }
 
@@ -110,4 +109,16 @@ function isTriangle(shape) {
 
 function displayQuote() {
   document.getElementById('quote').style.display = 'block';
+}
+
+function setGetShapesHandler() {
+  if (localStorage.handler) {
+    document.getElementById(localStorage.handler).checked = true;
+    return;
+  }
+  document.getElementById('withoutCancel').checked = true;
+}
+
+function saveHandler(handlerId) {
+  localStorage.handler = handlerId;
 }
