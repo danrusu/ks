@@ -107,8 +107,11 @@ function isTriangle(shape) {
   return shape.type == 'triangle';
 }
 
-function displayQuote() {
-  document.getElementById('quote').style.display = 'block';
+function displayQuote(quoteIndex) {
+  document.querySelectorAll('q[id^=quote]').forEach(el => {
+    el.style.display = 'none';
+  });
+  document.getElementById(`quote${quoteIndex}`).style.display = 'block';
 }
 
 function setGetShapesHandler() {

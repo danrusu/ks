@@ -28,10 +28,18 @@ html {
   cursor: pointer;
 }
 
-#quote {
+#quote1 {
+  margin-right: 10px;
   font-style: italic;
-  font-size: calc(var(--size)/3);
+  font-size: calc(var(--size)/2);
   color: var(--blue)
+}
+
+#quote2 {
+  margin-right: 10px;
+  font-style: italic;
+  font-size: calc(var(--size)/2);
+  color: var(--red)
 }
 
 #handler {
