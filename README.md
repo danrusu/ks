@@ -48,7 +48,7 @@ npm run dev
 
 - switch the radio button on the top left are and observe if there is any difference in functionality
 
-**Hint:** `Open Chrome Dev tools (F12), and observe the **Network** tab (Time and Waterfall columns) while clicking All/Red/Green/Blue buttons.`
+**Hint:** `Open Chrome Dev tools (F12), and observe the Network tab (Time and Waterfall columns) while clicking All/Red/Green/Blue buttons.`
 
 ## 3. Resources
 
