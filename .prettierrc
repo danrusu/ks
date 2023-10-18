@@ -13,7 +13,5 @@
         "parser": "json"
       }
     }
-  ],
-  "attributeGroups": ["^(id|name)$", "^class$", "$DEFAULT"],
-  "attributeSort": "ASC"
+  ]
 }
