@@ -1,6 +1,6 @@
 # Knowledge sharing
 
-## 1. Race condition POC
+## 1. Race condition POC & Chrome Dev Tools Overrides
 
 - install dependecies
 
