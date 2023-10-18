@@ -99,7 +99,7 @@ function toHtmlShape(shape) {
   const style = isTriangle(shape)
     ? `style="border-bottom-color: ${COLORS_MAP[shape.color]}"`
     : '';
-  return `<span ${style} class="shape  ${shape.type} ${color}"></span>`;
+  return `<span ${style} class="shape ${shape.type} ${color}"></span>`;
 }
 
 function isTriangle(shape) {
