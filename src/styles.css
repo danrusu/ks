@@ -21,8 +21,8 @@ html {
 }
 
 #quote-button {
-  height: var(--size);
-  width: var(--size);
+  height: calc(var(--size)/1.5);
+  width: calc(var(--size)/1.5);
   margin-right: calc(var(--size) / 2);
   margin-top: calc(var(--size) / 2);
   cursor: pointer;
@@ -48,7 +48,7 @@ html {
 }
 
 #title {
-  margin-top: var(--size);
+  margin-top: calc(var(--size)/3);
   text-align: center;
   font-family: 'Brush Script MT', cursive;
   font-size: calc(var(--size) * 2);
