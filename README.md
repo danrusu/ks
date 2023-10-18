@@ -1,6 +1,17 @@
-# Knowledge sharing
+# Race condition POC & Chrome Dev Tools Overrides
 
-## 1. Race condition POC & Chrome Dev Tools Overrides
+## 1. Prerequisites
+
+- [install Node.js](https://nodejs.org/ro/download)
+- [install Git](https://git-scm.com/downloads)
+
+## 2. Steps for exploring the web app
+
+- clone repository locally
+
+```bash
+git clone https://github.com/danrusu/ks-async-shapes.git
+```
 
 - install dependecies
 
@@ -14,13 +25,19 @@ npm install
 npm start
 ```
 
+- start web server in dev mode
+
+```bash
+npm run dev
+```
+
 - navigate to [http://localhost:1111](http://localhost:1111) end explore the functionality; do you find any bug?
 
 - switch the radio button on the top left are and observe if there is any difference in functionality
 
 - HINT: Open Chrome Dev tools (F12), and observe the **Network** tab (Time and Waterfall columns) while clicking All/Red/Green/Blue buttons
 
-## Resources
+## 3. Resources
 
 - [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
