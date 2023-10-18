@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "test": "cypress run"
+    "dev": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +22,6 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "cypress": "^13.3.0",
     "nodemon": "^3.0.1"
   }
 }
