@@ -5,6 +5,19 @@
 - [install Node.js](https://nodejs.org/ro/download)
 - [install Git](https://git-scm.com/downloads)
 
+```bash
+# My setup:
+
+$ node --version
+v18.16.0
+
+$ npm --version
+8.18.0
+
+$ git --version
+git version 2.40.1.windows.1
+```
+
 ## 2. Steps for exploring the web app
 
 - clone repository locally
