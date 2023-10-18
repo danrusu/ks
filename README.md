@@ -72,3 +72,5 @@ npm run dev
   const decodedUrl = decodeURIComponent(encodedUrl); // decodedUrl = 'https://localhost:1111/shapes?color=red'
   console.assert(url == decodedUrl, 'URL encoding/decoding does not work!');
   ```
+
+- [console.table](https://developer.mozilla.org/en-US/docs/Web/API/console/table)
