@@ -1,7 +1,7 @@
 {
-  "name": "ks",
+  "name": "ks-async-shapes",
   "version": "1.0.0",
-  "description": "knowledge sharing",
+  "description": "knowledge sharing: async race condition and CDP overrides",
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danrusu/ks.git"
+    "url": "git+https://github.com/danrusu/ks-async-shapes.git"
   },
   "author": "Dan Rusu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danrusu/ks/issues"
+    "url": "https://github.com/danrusu/ks-async-shapes/issues"
   },
-  "homepage": "https://github.com/danrusu/ks#readme",
+  "homepage": "https://github.com/danrusu/ks-async-shapes#readme",
   "dependencies": {
     "express": "^4.18.2",
     "path": "^0.12.7"
