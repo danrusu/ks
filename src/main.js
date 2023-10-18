@@ -1,5 +1,3 @@
-let abortController;
-const log = console.log;
 const COLORS_MAP = {
   red: 'crimson',
   green: 'rgb(80, 200, 120)',
@@ -18,6 +16,24 @@ async function getShapes(color) {
   HANDLERS[handler](color);
 }
 
+async function getShapesWithoutCancel(color) {
+  log(`start getShapes(${color})`);
+
+  updatePressedButton(color);
+  displayLoading();
+
+  const response = await fetch(getShapesUrl(color));
+  const shapes = await response.json();
+  const htmlShapes = shapes.map(toHtmlShape).join('\n');
+
+  setShapesContent(htmlShapes);
+
+  log(`finished getShapes(${color})`);
+}
+
+let abortController;
+const log = console.log;
+
 async function getShapesWithCancel(color) {
   log(`start getShapes(${color})`);
   const requestOptions = {};
@@ -32,21 +48,11 @@ async function getShapesWithCancel(color) {
   }
   updatePressedButton(color);
 
-  setShapesContent(
-    '<img class="loading" src="images/loading.gif" alt="...loading" />',
-  );
-
-  const searchParams = new URLSearchParams();
-  if (color != 'all') {
-    searchParams.append('color', color);
-  }
+  displayLoading();
 
   let shapes;
   try {
-    const response = await fetch(
-      `/shapes?${searchParams.toString()}`,
-      requestOptions,
-    );
+    const response = await fetch(getShapesUrl(color), requestOptions);
     shapes = await response.json();
   } catch (error) {
     if (error instanceof DOMException) {
@@ -56,33 +62,11 @@ async function getShapesWithCancel(color) {
     }
   }
   if (shapes) {
-    const htmlShapes = shapes.map(htmlShape).join('\n');
+    const htmlShapes = shapes.map(toHtmlShape).join('\n');
     setShapesContent(htmlShapes);
-    //log(`reset abort controler for getShapes(${color})`);
     abortController = undefined;
     log(`finished getShapes(${color})`);
   }
-}
-
-async function getShapesWithoutCancel(color) {
-  log(`start getShapes(${color})`);
-  updatePressedButton(color);
-
-  setShapesContent(
-    '<img class="loading" src="images/loading.gif" alt="...loading" />',
-  );
-
-  const searchParams = new URLSearchParams();
-  if (color != 'all') {
-    searchParams.append('color', color);
-  }
-
-  const response = await fetch(`/shapes?${searchParams.toString()}`);
-  const shapes = await response.json();
-  const htmlShapes = shapes.map(htmlShape).join('\n');
-
-  setShapesContent(htmlShapes);
-  log(`finished getShapes(${color})`);
 }
 
 function updatePressedButton(color) {
@@ -91,11 +75,26 @@ function updatePressedButton(color) {
     .forEach(element => element.classList.remove('pressed'));
   document.querySelector(`#${color}-filter`).classList.add('pressed');
 }
+
+function displayLoading() {
+  setShapesContent(
+    '<img class="loading" src="images/loading.gif" alt="...loading" />',
+  );
+}
+
 function setShapesContent(innerHTML) {
   document.getElementById('shapes').innerHTML = innerHTML;
 }
 
-function htmlShape(shape) {
+function getShapesUrl(color) {
+  const searchParams = new URLSearchParams();
+  if (color != 'all') {
+    searchParams.append('color', color);
+  }
+  return `/shapes?${searchParams.toString()}`;
+}
+
+function toHtmlShape(shape) {
   const color = isTriangle(shape) ? '' : shape.color;
   const style = isTriangle(shape)
     ? `style="border-bottom-color: ${COLORS_MAP[shape.color]}"`
