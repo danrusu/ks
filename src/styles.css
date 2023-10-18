@@ -21,8 +21,8 @@ html {
 }
 
 #quote-button {
-  height: calc(var(--size)/1.5);
-  width: calc(var(--size)/1.5);
+  height: calc(var(--size) / 1.5);
+  width: calc(var(--size) / 1.5);
   margin-right: calc(var(--size) / 2);
   margin-top: calc(var(--size) / 2);
   cursor: pointer;
